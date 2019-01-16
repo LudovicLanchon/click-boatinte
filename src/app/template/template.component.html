@@ -1,0 +1,130 @@
+<div class="container">
+  <div class="left">
+    <div class="header" (click)="backClicked()">
+      <div class="arrow"></div>
+      <div class="back">RETOUR</div>
+    </div>
+    <div class="main-content" [class.centered]="page === 'second'">
+      <ng-container *ngIf="page === 'first'">
+        <div class="title">
+          <p>Louer son bateau</p>
+          <p>sur Click<span>&</span>Boat</p>
+        </div>
+        <div class="choice-form">
+          <p class="accroch">Je suis :</p>
+          <div class="input-content">
+            <div class="input-item" (click)="user(param = 'par')">
+              <i class="far fa-circle" *ngIf="userSelected !== 'par'"></i>
+              <i class="fas fa-check-circle valid" *ngIf="userSelected === 'par'"></i>
+              <div>Un particulier</div>
+            </div>
+            <div class="input-item" (click)="user(param = 'pro')">
+              <i class="far fa-circle" *ngIf="userSelected !== 'pro'"></i>
+              <i class="fas fa-check-circle valid" *ngIf="userSelected === 'pro'"></i>
+              <div>Un professionel</div>
+            </div>
+          </div>
+          <button class="btn" [routerLink]="['/second', userSelected]" [disabled]="!userSelected" [class.disabled]="!userSelected">Commencer</button>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="page === 'second'">
+        <div class="choice-form">
+          <div class="accroch">
+            <div>ETAPE 1/8</div>
+            <div>Votre bateau</div>
+          </div>
+          <div class="input-content">
+            <div class="input-item" (click)="boat(param = 'voilier')">
+              <i class="far fa-circle" *ngIf="boatSelected !== 'voilier'"></i>
+              <i class="fas fa-check-circle valid" *ngIf="boatSelected === 'voilier'"></i>
+              <div>Voilier</div>
+            </div>
+            <div class="input-item" (click)="boat(param = 'catamaran')">
+              <i class="far fa-circle" *ngIf="boatSelected !== 'catamaran'"></i>
+              <i class="fas fa-check-circle valid" *ngIf="boatSelected === 'catamaran'"></i>
+              <div>Catamaran</div>
+            </div>
+          </div>
+
+          <div class="input-content">
+            <div class="input-item" (click)="boat(param = 'moteur')">
+              <i class="far fa-circle" *ngIf="boatSelected !== 'moteur'"></i>
+              <i class="fas fa-check-circle valid" *ngIf="boatSelected === 'moteur'"></i>
+              <div>Bateau moteur</div>
+            </div>
+            <div class="input-item" (click)="boat(param = 'semi')">
+              <i class="far fa-circle" *ngIf="boatSelected !== 'semi'"></i>
+              <i class="fas fa-check-circle valid" *ngIf="boatSelected === 'semi'"></i>
+              <div>Semi-rigide</div>
+            </div>
+          </div>
+
+          <div class="input-content">
+            <div class="input-item" (click)="boat(param = 'peniche')">
+              <i class="far fa-circle" *ngIf="boatSelected !== 'peniche'"></i>
+              <i class="fas fa-check-circle valid" *ngIf="boatSelected === 'peniche'"></i>
+              <div>Péniche</div>
+            </div>
+            <div class="input-item" (click)="boat(param = 'jetski')">
+              <i class="far fa-circle" *ngIf="boatSelected !== 'jetski'"></i>
+              <i class="fas fa-check-circle valid" *ngIf="boatSelected === 'jetski'"></i>
+              <div>Jet-Ski</div>
+            </div>
+            <div class="input-item" (click)="boat(param = 'yacht')">
+              <i class="far fa-circle" *ngIf="boatSelected !== 'yacht'"></i>
+              <i class="fas fa-check-circle valid" *ngIf="boatSelected === 'yacht'"></i>
+              <div>Yacht</div>
+            </div>
+          </div>
+          <button class="btn mg-l-auto" [disabled]="!boatSelected" [class.disabled]="!boatSelected">Suivant</button>
+        </div>
+      </ng-container>
+    </div>
+    <div class="footer">
+      <div class="why">Pourquoi louer sur Click&Boat ?</div>
+      <div>Estimez mes revenues</div>
+    </div>
+  </div>
+
+  <div class="right" [ngClass]="page === 'first' ? 'first' : 'second'">
+    <div class="content" *ngIf="page === 'first'">
+      <div class="content-item">
+        <div class="icon">
+          <img src="../../assets/piggy-bank.png" alt="icon">
+        </div>
+        <div class="text">
+          <div class="title">Gratuit</div>
+          <div class="desc">C'est gratuit, et cela vous permet d'amortir vos frais d'entretients</div>
+        </div>
+      </div>
+      <div class="content-item">
+        <div class="icon">
+          <img src="../../assets/shield.png" alt="icon">
+        </div>
+        <div class="text">
+          <div class="title">Assuré</div>
+          <div class="desc">Louez l'esprit sereinement à nos utilisateurs grâce à notre assurancce Global Assitance</div>
+        </div>
+      </div>
+      <div class="content-item">
+        <div class="icon">
+          <img src="../../assets/user.png" alt="icon">
+        </div>
+        <div class="text">
+          <div class="title">Libre</div>
+          <div class="desc">Choisissez librement vos locataires, et aucune obligation de louer</div>
+        </div>
+      </div>
+      <div class="content-item">
+        <div class="icon">
+          <img src="../../assets/telephone.png" alt="icon">
+        </div>
+        <div class="text">
+          <div class="title">Accompagné</div>
+          <div class="desc">Une équipe internationale toute l'année pour vous aider en cas de besoin</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
